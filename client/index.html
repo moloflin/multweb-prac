@@ -1,0 +1,17 @@
+<canvas id="multwebprac" width="500" height="500" style="border:1px solid #000000;"></canvas>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+	var multwebprac = document.getElementById("multwebprac").getContext("2d");
+	multwebprac.font = '30px Arial';
+	var socket = io();
+
+	socket.on('newPositions', function(data){
+		multwebprac.clearRect(0,0,500,500);
+		for(var i = 0; i < data.length; i++)
+			multwebprac.fillText('P',data[i].x,data[i].y);
+	});
+
+	socket.emit('sup', {
+		reason:"Just seeing how you're doing!"
+	});
+</script>
