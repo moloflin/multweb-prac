@@ -8,10 +8,7 @@
 	socket.on('newPositions', function(data){
 		multwebprac.clearRect(0,0,500,500);
 		for(var i = 0; i < data.length; i++)
-			multwebprac.fillText('P',data[i].x,data[i].y);
+			multwebprac.fillText(data[i].number,data[i].x,data[i].y);
 	});
 
-	socket.emit('sup', {
-		reason:"Just seeing how you're doing!"
-	});
 </script>
