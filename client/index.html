@@ -11,4 +11,28 @@
 			multwebprac.fillText(data[i].number,data[i].x,data[i].y);
 	});
 
+	document.onkeydown = function(event){
+		if(event.keyCode == 68) //d key!
+			socket.emit('keypress', {inputId:'right', state:true});
+		if(event.keyCode == 83) //s key!
+			socket.emit('keypress', {inputId:'down', state:true});
+		if(event.keyCode == 65) //a key!
+			socket.emit('keypress', {inputId:'left', state:true});
+		if(event.keyCode == 87) //w key!
+			socket.emit('keypress', {inputId:'up', state:true});
+
+	}
+
+	document.onkeyup = function(event){
+		if(event.keyCode == 68) //d key!
+			socket.emit('keypress', {inputId:'right', state:false});
+		if(event.keyCode == 83) //s key!
+			socket.emit('keypress', {inputId:'down', state:false});
+		if(event.keyCode == 65) //a key!
+			socket.emit('keypress', {inputId:'left', state:false});
+		if(event.keyCode == 87) //w key!
+			socket.emit('keypress', {inputId:'up', state:false});
+
+	}
+
 </script>
